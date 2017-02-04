@@ -3,21 +3,21 @@
     "id": 0,
     "date": "2017-01-31T14:34:00Z",
     "name": "Cash withdrawal",
-    "in": 0,
-    "out": 50
+    "inAmount": 0,
+    "outAmount": 50
   },
   {
     "id": 1,
     "date": "2017-01-31T15:45:21Z",
     "name": "Salary",
-    "in": 3560,
-    "out": 0
+    "inAmount": 3560,
+    "outAmount": 0
   },
   {
     "id": 2,
     "date": "2017-02-01T09:22:00Z",
     "name": "Mortgage interest",
-    "in": 0,
-    "out": 450.54
+    "inAmount": 0,
+    "outAmount": 450.54
   }
 ]

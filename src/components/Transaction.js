@@ -5,8 +5,8 @@ const Transaction = ({ transaction, onDelete }) => {
     <tr>
       <td>{transaction.date}</td>
       <td>{transaction.name}</td>
-      <td>{transaction.in}</td>
-      <td>{transaction.out}</td>
+      <td>{transaction.inAmount}</td>
+      <td>{transaction.outAmount}</td>
       <td>
         <button
           onClick={() => onDelete(transaction.id)}

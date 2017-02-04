@@ -3,7 +3,7 @@ import Transaction from './Transaction'
 import TransactionEntry from './TransactionEntry'
 import './TransactionsTable.css'
 
-const TransactionsTable = ({ transactions, onDeleteTransaction }) => {
+const TransactionsTable = ({ transactions, onDeleteTransaction, onAddTransaction }) => {
   if (!transactions.length) {
     return (
       <p>No transactions</p>
@@ -31,14 +31,16 @@ const TransactionsTable = ({ transactions, onDeleteTransaction }) => {
       </thead>
       <tbody>
         { transactionRows }
-        <TransactionEntry />
+        <TransactionEntry onSubmit={onAddTransaction} />
       </tbody>
     </table>
   )
 }
 
 TransactionsTable.propTypes = {
-  transactions: PropTypes.array.isRequired
+  transactions: PropTypes.array.isRequired,
+  onDeleteTransaction: PropTypes.func.isRequired,
+  onAddTransaction: PropTypes.func.isRequired
 }
 
 export default TransactionsTable
