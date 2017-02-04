@@ -1,0 +1,11 @@
+.TransactionsTable {
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+  border-bottom-width: 0;
+}
+
+.TransactionsTable th,
+.TransactionsTable td {
+  border-bottom: 1px solid #ccc;
+  padding: .4rem .8rem;
+}
