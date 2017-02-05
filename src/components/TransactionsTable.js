@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import Transaction from './Transaction'
 import TransactionEntry from './TransactionEntry'
+import TransactionTotals from './TransactionTotals'
 import './TransactionsTable.css'
 
 const TransactionsTable = ({ transactions, onDeleteTransaction, onAddTransaction }) => {
@@ -29,6 +30,9 @@ const TransactionsTable = ({ transactions, onDeleteTransaction, onAddTransaction
           <th></th>
         </tr>
       </thead>
+      <tfoot>
+        <TransactionTotals transactions={transactions} />
+      </tfoot>
       <tbody>
         { transactionRows }
         <TransactionEntry onSubmit={onAddTransaction} />
