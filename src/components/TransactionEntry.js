@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import TextInput from './TextInput'
 
 class TransactionEntry extends Component {
 
@@ -9,6 +10,7 @@ class TransactionEntry extends Component {
   constructor() {
     super()
     this.state = this.getInitialState()
+    this.handleInputChange = this.handleInputChange.bind(this)
   }
 
   getInitialState() {
@@ -32,8 +34,7 @@ class TransactionEntry extends Component {
     this.setState(this.getInitialState())
   }
 
-  handleInputChange(ev) {
-    const { name, value } = ev.target
+  handleInputChange(name, value) {
     this.setState({
       [name]: value
     })
@@ -43,43 +44,32 @@ class TransactionEntry extends Component {
     return (
       <tr>
         <td>
-          <input
-            type="text"
+          <TextInput
             name="date"
             placeholder="2017-01-01"
-            className="input--inline"
-            onChange={(ev) => this.handleInputChange(ev)}
-            value={this.state.date}
+            defaultValue={this.state.date}
+            onChange={this.handleInputChange}
           />
         </td>
         <td>
-          <input
-            type="text"
+          <TextInput
             name="name"
             placeholder="Widgets"
-            className="input--inline"
-            onChange={(ev) => this.handleInputChange(ev)}
-            value={this.state.name}
+            onChange={this.handleInputChange}
           />
         </td>
         <td>
-          <input
-            type="text"
+          <TextInput
             name="inAmount"
             placeholder="20.00"
-            className="input--inline"
-            onChange={(ev) => this.handleInputChange(ev)}
-            value={this.state.inAmount}
+            onChange={this.handleInputChange}
           />
         </td>
         <td>
-          <input
-            type="text"
+          <TextInput
             name="outAmount"
             placeholder="20.00"
-            className="input--inline"
-            onChange={(ev) => this.handleInputChange(ev)}
-            value={this.state.outAmount}
+            onChange={this.handleInputChange}
           />
         </td>
         <td>
