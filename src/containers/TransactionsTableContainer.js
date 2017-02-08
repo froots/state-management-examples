@@ -1,32 +1,30 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import connectToStores from 'alt-utils/lib/connectToStores'
+import TransactionStore from '../stores/TransactionStore'
+import TransactionActions from '../actions/TransactionActions'
 import TransactionsTable from '../components/TransactionsTable'
-import { deleteTransaction, addTransaction } from '../actions/transactions'
 
 class TransactionsTableContainer extends Component {
+  static getStores() {
+    return [TransactionStore]
+  }
+
+  static getPropsFromStores() {
+    return TransactionStore.getState()
+  }
+  
+  handleDeleteTransaction(transactionId) {
+    TransactionActions.deleteTransaction(transactionId);
+  }
+
   render() {
-    const { transactions, onDeleteTransaction, onAddTransaction } = this.props
     return (
       <TransactionsTable
-        transactions={transactions}
-        onDeleteTransaction={onDeleteTransaction}
-        onAddTransaction={onAddTransaction}
+        transactions={this.props.transactions}
+        onDeleteTransaction={this.handleDeleteTransaction}
       />
     )
   }
 }
 
-const mapStateToProps = state => ({ transactions: state.transactions })
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onDeleteTransaction: (id) => {
-      dispatch(deleteTransaction(id))
-    },
-    onAddTransaction: (transaction) => {
-      dispatch(addTransaction(transaction))
-    }
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(TransactionsTableContainer);
+export default connectToStores(TransactionsTableContainer);
