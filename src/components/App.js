@@ -1,10 +1,10 @@
 import React from 'react'
-import TransactionsTableContainer from '../containers/TransactionsTableContainer'
+import TransactionsTable from '../components/TransactionsTable'
 
 const App = () => (
   <div>
-    <TransactionsTableContainer />
+    <TransactionsTable />
   </div>
-)
+);
 
 export default App
